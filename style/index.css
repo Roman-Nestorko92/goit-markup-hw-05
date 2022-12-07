@@ -20,10 +20,6 @@ section{
 
 /*----------------------------header---------------------------- */
 
-.header{
-    padding: 25px 215px;      
-}
-
 .container{
     width: 1200px;
     padding-left: 15px;
@@ -33,13 +29,16 @@ section{
 
     .header-nav{
         display: flex; 
-        
+        align-items: center;   
+        justify-content: space-between;
     }
 
     .header-nav-menu{
         list-style: none;  
         display: flex;
-        gap: 50px;      
+        gap: 50px;  
+        margin: 0;   
+        padding: 0; 
     }
 
     .header-nav-contact{
@@ -51,8 +50,8 @@ section{
 
         
     .post-picture{
-        margin-right: 10px;    
-
+        margin-right: 10px; 
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .header-link{
@@ -64,17 +63,36 @@ section{
         line-height: calc(16 / 14);
         letter-spacing: 0.02em; 
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        padding: 32px 0;
+        display: flex;
+        align-items: center;        
     }
-
+ 
     .header-link:hover,
     .header-link:focus{
         color: var(--link-color);        
     }    
 
-    .header-link.current-page{
-        color: #2196F3;
+    .current-page{
+        color: #2196F3; 
     }
-    
+
+    .current-page::after{
+        content: "";
+        width: 100%;
+        height: 4px;
+        background-color: #2196F3;
+        border-radius: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }    
+
+    .head-line{
+        width: 48px;
+    }
+         
     .header-contact-link{
         display: flex;
         align-items: center;
@@ -93,6 +111,12 @@ section{
     fill: var(--link-color);
     }
 
+    .nav-container{
+        display: flex;
+        align-items: center;
+        gap: 93px;
+    }
+
     .header-web{
         text-decoration: none;
         color: var(--black-color);
@@ -102,9 +126,7 @@ section{
         font-size: 26px;
         line-height: calc(31 / 26);
         letter-spacing: 0.03em;    
-        margin-left: -30px;
-        margin-right: 50px;
-    }
+     }
 
     .header-web-1{
         color: var(--link-color);
@@ -123,7 +145,7 @@ section{
     padding: 200px 0;    
     max-width: 1600px;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: auto;    
 }
 
 .hero-title{
@@ -200,6 +222,7 @@ cursor: pointer;
     border: none;    
     cursor: pointer;        
 }
+
 /*-------------- benefits-------------------*/
 
 .main-benefits{
@@ -266,9 +289,15 @@ padding-bottom: 50px;
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: calc(16 / 14);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #FFFFFF;
 }
 
-.main-about-item::before{
+.item-title-one::before{
     content: "Десктопні додатки";
     position: absolute;
     bottom: 0;
@@ -276,10 +305,34 @@ padding-bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 70px;
+    width: 100%;    
+    background-color: rgba(47, 48, 58, 0.8);    
+}
 
+.item-title-two::before{
+    content: "Мобільні додатки";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 70px;
     width: 100%;
-    color: var(--white-color);
+    background-color: rgba(47, 48, 58, 0.8);    
+}
+
+.item-title-three::before{
+    content: "Дизайнерські рішення";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 100%;
     background-color: rgba(47, 48, 58, 0.8);    
 }
 
@@ -563,16 +616,12 @@ background-color: var(--link-color);
     overflow: hidden;
   }
 
-.portfolio-section-links{
-    padding-top: 100px;
-    padding-bottom: 55px;
-    padding-left: 540px;    
-}
-
 .portfolio-links{
     list-style: none;
     display: flex;
+    justify-content: center;
     gap: 10px;
+    margin-bottom: 55px;
 }
 
 .portfolio-btn{
@@ -601,15 +650,22 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 .portfolio-photo-group{
     list-style: none;
     display: flex;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 30px 30px;
+    margin: 0;
+    padding: 0;
 }
 
+
+.portfolio-photo-link-item{
+    margin-bottom: 30px;
+}
 
 .portfolio-box{
     display: block;
     width: 370;
     height: 405;
-    background-color: var(--white-color);    
+    background-color: var(--white-color);        
 }
 
 .portfolio-box-content{
@@ -665,8 +721,8 @@ color: var(--googray-color);
 transform: translateY(0);
 }
 
-
-
-/*-------------------------- footer -----------------------------*/
-
-
+.portfolio-photo-link-item:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
+    0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px 
+    rgba(0, 0, 0, 0.16);
+}
